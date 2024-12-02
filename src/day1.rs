@@ -1,4 +1,4 @@
-use std::{collections::BTreeMap, fs};
+use std::{collections::HashMap, fs, time::Instant};
 
 fn main() {
 	let content = fs::read_to_string("./inputs/day1.txt").unwrap();
@@ -24,7 +24,9 @@ fn main() {
 
 	println!("Distance: {}", dist);
 
-	let mut occ2 = BTreeMap::new();
+	let start = Instant::now();
+
+	let mut occ2 = HashMap::with_capacity(arr2.len());
 
 	for b in arr2 {
 		*occ2.entry(b).or_insert(0) += 1;
@@ -35,5 +37,11 @@ fn main() {
 		.map(|a| a * occ2.get(a).unwrap_or(&0))
 		.sum::<usize>();
 
-	println!("Similarity score: {}", similarity_score);
+	let duration = start.elapsed();
+
+	println!(
+		"Similarity score: {} took: {}ns",
+		similarity_score,
+		duration.as_nanos()
+	);
 }

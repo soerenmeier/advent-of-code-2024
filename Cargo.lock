@@ -5,3 +5,19 @@ version = 3
 [[package]]
 name = "advent-of-code-2024"
 version = "0.1.0"
+dependencies = [
+ "byte-parser",
+ "memchr",
+]
+
+[[package]]
+name = "byte-parser"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b5328b147db22296989035fe44fad9038c5dd9d94f1ab53dc53d289ce9a6750f"
+
+[[package]]
+name = "memchr"
+version = "2.7.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
